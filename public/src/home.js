@@ -12,11 +12,10 @@ function getTotalBooksCount(books) {
     // YOUR SOLUTION HERE
   // Hint: You can use the [`filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) method here. 
   // If you get stuck, feel free to take a look at this repl.it: https://replit.com/@thinkful/getBooksBorrowedCount#index.js
-  let borrowedBooks = 0;
-  books.forEach(book => {
-    if (!book.borrows[0].returned) borrowedBooks++;
-  });
-  return borrowedBooks;
+   return books.filter((book) => {
+    const recent = book.borrows[0];
+    return recent.returned === false;
+  }).length;
   }
   
   
